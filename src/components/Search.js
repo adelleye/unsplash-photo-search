@@ -5,8 +5,10 @@ import { createApi } from "unsplash-js";
 import Image from "./Image";
 
 const Search = () => {
+  console.log(process.env.REACT_APP_ACCESS_KEY);
+
   const api = createApi({
-    accessKey: "rpZrmRDtIFsd2Jup5Dt2qr4LLyl-fSQKNQd6AMrCr_Q",
+    accessKey: process.env.REACT_APP_ACCESS_KEY,
   });
 
   //STATES
