@@ -26,18 +26,13 @@ const Search = () => {
   }
   console.log(searchBoxText);
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      searchPhoto();
-    }
-  };
   //Search for photo after button is clicked
   function searchPhoto() {
     api.search
       .getPhotos({
         query: searchBoxText.text,
 
-        perPage: 9,
+        perPage: 12,
         orientation: "landscape",
       })
       .then((result) => {
@@ -47,6 +42,13 @@ const Search = () => {
         console.log("oops something went wrong!");
       });
   }
+
+  //When enter button is hit
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      searchPhoto();
+    }
+  };
 
   if (data === null) {
     return (

@@ -7,7 +7,8 @@ const App = () => {
     <div className="container">
       <h1 className="container--title">Resplash</h1>
       <p className="container--text">
-        Browse and search for images <br />
+        Browse and search for images from unsplash
+        <br />
         Made with ❤️ by Tobi
       </p>
       <Search />

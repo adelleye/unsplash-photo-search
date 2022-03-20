@@ -6,7 +6,7 @@ const Form = (props) => {
       <input
         type="text"
         className="search--text"
-        placeholder="Search for hih res. photos"
+        placeholder="Search for high res. photos"
         name="text"
         value={props.value.text}
         onChange={props.handleChange}

@@ -1,3 +1,19 @@
+/* FONTS */
+@font-face {
+  font-family: "Circular-Black";
+  src: local("CircularStd-Black"),
+    url("./fonts/CircularStd-Black.woff2") format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Circular-Book";
+  src: local("CircularStd-Book"),
+    url("./fonts/CircularStd-Book.woff2") format("woff2");
+  font-weight: bold;
+}
+
+/*GLOBALS */
 * {
   box-sizing: border-box;
   background-color: rgb(244, 244, 244);
@@ -7,7 +23,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen;
+  font-family: "Circular-Book", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen;
   width: 100vw;
 }
 
@@ -20,10 +37,6 @@ ul {
   list-style-type: none;
 }
 
-h1 {
-  font-size: 2rem;
-}
-
 p {
   font-size: 1rem;
   text-align: center;
@@ -33,15 +46,23 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .container--title {
+  font-family: "Circular-Black";
   margin-top: 80px;
 }
 
 .container--text {
   margin-top: 16px;
   margin-bottom: 36px;
+  color: #706f7b;
+}
+
+input,
+button {
+  font-family: "Circular-Book";
 }
 
 .search--text {
@@ -72,7 +93,8 @@ p {
   font-size: 1rem;
 }
 .feed {
-  margin: 30px;
+  margin-top: 48px;
+  width: 90%;
 }
 .column {
   padding: 0;
