@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import { createApi } from "unsplash-js";
 
 import Image from "./Image";
+import Form from "./Form";
 
 const Search = () => {
-  console.log(process.env.REACT_APP_ACCESS_KEY);
-
   const api = createApi({
     accessKey: process.env.REACT_APP_ACCESS_KEY,
   });
@@ -27,13 +26,18 @@ const Search = () => {
   }
   console.log(searchBoxText);
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      searchPhoto();
+    }
+  };
   //Search for photo after button is clicked
   function searchPhoto() {
     api.search
       .getPhotos({
         query: searchBoxText.text,
-        page: 1,
-        perPage: 3,
+
+        perPage: 9,
         orientation: "landscape",
       })
       .then((result) => {
@@ -47,20 +51,12 @@ const Search = () => {
   if (data === null) {
     return (
       <div>
-        <div className="search">
-          <input
-            type="text"
-            className="search--text"
-            placeholder="text"
-            name="text"
-            value={searchBoxText.text}
-            onChange={handleChange}
-          ></input>
-          <button className="search--button" onClick={searchPhoto}>
-            Search
-          </button>
-        </div>
-        Loading...
+        <Form
+          value={searchBoxText.text}
+          handleChange={handleChange}
+          handleKeyDown={handleKeyDown}
+          handleClick={searchPhoto}
+        />
       </div>
     );
   } else if (data.errors) {
@@ -71,21 +67,16 @@ const Search = () => {
     );
   } else {
     return (
-      <div className="search">
-        <input
-          type="text"
-          className="search--text"
-          placeholder="text"
-          name="text"
+      <div className="container">
+        <Form
           value={searchBoxText.text}
-          onChange={handleChange}
-        ></input>
-        <button className="search--button" onClick={searchPhoto}>
-          Search
-        </button>
+          handleChange={handleChange}
+          handleKeyDown={handleKeyDown}
+          handleClick={searchPhoto}
+        />
 
         <div className="feed">
-          <ul className="columnUl">
+          <ul className="column">
             {data.response.results.map((photo) => (
               <li key={photo.id} className="li">
                 <Image photo={photo} />

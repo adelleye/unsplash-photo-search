@@ -4,9 +4,12 @@ import Search from "./components/Search";
 
 const App = () => {
   return (
-    <div>
-      <h1>Resplash</h1>
-      <p>Explain project here</p>
+    <div className="container">
+      <h1 className="container--title">Resplash</h1>
+      <p className="container--text">
+        Browse and search for images <br />
+        Made with ❤️ by Tobi
+      </p>
       <Search />
     </div>
   );
